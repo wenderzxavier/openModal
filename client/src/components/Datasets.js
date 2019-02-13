@@ -1,0 +1,104 @@
+import React, { Component } from 'react'
+import Grid from '@material-ui/core/Grid'
+import { withStyles } from '@material-ui/core/styles'
+import DataCard from './DataCard'
+import CityData from '../utils/CityData'
+import Button from '@material-ui/core/Button';
+import Modal from 'react-modal';
+import { modals } from '../utils/Constants';
+import '../styles/index.css';
+
+const customStyles = {
+    content: {
+        top: '50%',
+        maxWidth: '500px',
+        width: '80%',
+        height: '60%',
+        maxHeight: '500px',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)'
+    }
+};
+
+const style = {
+    area: {
+        backgroundColor: 'white',
+        margin: 15,
+        textAlign: 'center'
+    },
+    title: {
+        fontFamly: 'Raleway'
+    },
+
+}
+
+Modal.setAppElement('#root');
+
+class Datasets extends Component {
+    constructor() {
+        super();
+
+        this.openModal = this.openModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
+        this.handleUpload = this.handleUpload.bind(this);
+    }
+
+    state = {
+        modalIsOpen: false
+    }
+
+    openModal() {
+        this.setState({ modalIsOpen: true });
+    }
+
+    closeModal() {
+        this.setState({ modalIsOpen: false });
+    }
+
+    handleUpload() {
+        this.closeModal();
+        this.props.updateCity('Uploaded Data');
+        this.props.updateStep();
+        console.log('Handle Upload Files');
+    }
+
+    render() {
+        const { classes } = this.props;
+        return (
+            <div className={classes.area}>
+                <Button variant="contained" size='small' color="primary" onClick={this.openModal}>Upload new city data here</Button>
+                <Modal
+                    isOpen={this.state.modalIsOpen}
+                    onRequestClose={this.closeModal}
+                    style={customStyles}
+                    contentLabel="Select Datasets"
+                >
+                    <form>
+                        {modals.map((type, key) => (
+                            <div key={key}>
+                                <label htmlFor={type.id} className='input-dataset'>
+                                    {type.icon}
+                                    {type.type}
+                                </label>
+                                <input id={type.id} type='file' />
+                            </div>
+                        ))}
+                        <Button variant="contained" size='small' color="primary" onClick={this.handleUpload}>Upload Data</Button>
+                    </form>
+                </Modal>
+                <Grid container spacing={8}>
+                    {CityData.map((city, key) =>
+                        <Grid key={key} item xs={12} lg={6}>
+                            <DataCard city={city} updateStep={this.props.updateStep} updateCity={this.props.updateCity}/>
+                        </Grid>
+                    )}
+                </Grid>
+            </div>
+        )
+    }
+}
+
+export default withStyles(style)(Datasets)
