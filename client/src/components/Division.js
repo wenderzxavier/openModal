@@ -75,7 +75,7 @@ class Division extends Component {
                     <Grid container spacing={16}>
                         <Grid item sm={12} lg={4}>
                             <Typography align='center' color="textSecondary" variant="title">Available Cities: {selectedCity}</Typography>
-                            <div className={activeStep === 0 ? '' : 'disableSection'} disabled='true'>
+                            <div className={activeStep === 0 ? '' : 'disableSection'}>
                                 <Datasets updateStep={this.updateStep} updateCity={this.updateCity}/>
                             </div>
                         </Grid>
