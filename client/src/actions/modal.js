@@ -1,16 +1,26 @@
-import {  CHANGE_DATA, CHANGE_VARIABLES } from './Constants';
+import {  CHANGE_DATA, CHANGE_PTS_VARIABLES, CHANGE_SIGNATURE_VARIABLES } from './Constants';
 
-export const changeData = (folderName) => {
+export const changeData = (data) => {
     return{
         type: CHANGE_DATA,
-        folderName
+        data
     }
 }
 
-export const changeVariables = (algorithm, variables) => {
+export const changePTSVariables = (algorithm, {cluster, seed, iteractions}) => {
     return{
-        type: CHANGE_VARIABLES,
+        type: CHANGE_PTS_VARIABLES,
         algorithm,
-        variables
+        cluster,
+        seed,
+        iteractions
+    }
+}
+
+export const changeSignatureVariables = (algorithm, {test, unitArea}) => {
+    return{
+        type: CHANGE_SIGNATURE_VARIABLES,
+        test,
+        unitArea
     }
 }

@@ -5,6 +5,8 @@ import classnames from 'classnames';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
+import { connect } from 'react-redux';
+import { changeData } from '../actions/modal';
 import CardMedia from '@material-ui/core/CardMedia';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import IconButton from '@material-ui/core/IconButton';
@@ -43,14 +45,13 @@ const style = theme => ({
     },
 })
 
-class DataCard extends Component {
+class CityCard extends Component {
     state = { expanded: false };
 
     selectDataset = (name, id) => {
-
-        console.log(id);
         this.props.updateCity(name);
         this.props.updateStep();
+        this.props.setFolderName(id);
         // this.callAPI(name)
         //     .catch((err) => console.log(err));
     }
@@ -124,4 +125,10 @@ class DataCard extends Component {
     }
 }
 
-export default withStyles(style)(DataCard)
+const mapStateToProps = (state) => {return{}}
+
+const mapDispatchToProps = dispatch => ({
+    setFolderName: (folderName) => dispatch(changeData(folderName))
+})
+
+export default withStyles(style)(connect(mapStateToProps,mapDispatchToProps)(CityCard))

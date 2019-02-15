@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Datasets from './Datasets'
 import Analyses from './Analyses'
+import Results from './Results'
 import Typography from '@material-ui/core/Typography'
 import Stepper from '@material-ui/core/Stepper'
 import Step from '@material-ui/core/Step'
@@ -88,7 +89,7 @@ class Division extends Component {
                         <Grid item sm={12} lg={4}>
                             <Typography align='center' color="textSecondary" variant="title">Available Results:</Typography>
                             <div className={activeStep === 2 ? '' : 'disableSection'}>
-                                {/* <Results /> */}
+                                <Results activeStep={this.state.activeStep}/>
                             </div>
                         </Grid>
                     </Grid>

@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import Grid from '@material-ui/core/Grid'
 import { withStyles } from '@material-ui/core/styles'
-import DataCard from './DataCard'
+import CityCard from './CityCard'
 import CityData from '../utils/CityData'
 import Button from '@material-ui/core/Button';
 import Modal from 'react-modal';
+import { connect } from 'react-redux'
+import { changeData } from '../actions/modal';
 import { modals } from '../utils/Constants';
 import '../styles/index.css';
 
@@ -62,7 +64,6 @@ class Datasets extends Component {
         this.closeModal();
         this.props.updateCity('Uploaded Data');
         this.props.updateStep();
-        console.log('Handle Upload Files');
     }
 
     render() {
@@ -92,7 +93,7 @@ class Datasets extends Component {
                 <Grid container spacing={8}>
                     {CityData.map((city, key) =>
                         <Grid key={key} item xs={12} lg={6}>
-                            <DataCard city={city} updateStep={this.props.updateStep} updateCity={this.props.updateCity}/>
+                            <CityCard city={city} updateStep={this.props.updateStep} updateCity={this.props.updateCity}/>
                         </Grid>
                     )}
                 </Grid>
@@ -101,4 +102,8 @@ class Datasets extends Component {
     }
 }
 
-export default withStyles(style)(Datasets)
+const mapDispatchToProps = dispatch => ({
+    setFolderName: (folderName) => dispatch(changeData(folderName))
+})
+
+export default withStyles(style)(connect(mapDispatchToProps)(Datasets))
