@@ -17,10 +17,10 @@ import Modal from 'react-modal';
 const customStyles = {
     content: {
         top: '50%',
-        maxWidth: '500px',
+        maxWidth: '250px',
         width: '80%',
         height: '60%',
-        maxHeight: '500px',
+        maxHeight: '400px',
         left: '50%',
         right: 'auto',
         bottom: 'auto',

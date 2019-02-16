@@ -7,13 +7,17 @@ const initialState = {
         cluster: 0,
         seed: -5,
         iteractions: 0,
-        test: 2,
-        unitAreaSize: 2
+        unitArea: 2,
+        timeVariation: 0,
+        startLat: 0,
+        startLon: 0,
+        endLat: 0,
+        endLon: 0
     }
 }
 
 const modalReducer = (state = initialState, action) => {
-    const { data, algorithm, cluster, seed, iteractions, test, unitArea } = action;
+    const { data, algorithm, cluster, seed, iteractions, unitArea, timeVariation, startLat, startLon, endLat, endLon } = action;
     switch (action.type) {
         case CHANGE_DATA:
             return {
@@ -36,7 +40,11 @@ const modalReducer = (state = initialState, action) => {
                 algorithm,
                 variables: {
                     unitArea,
-                    test
+                    timeVariation,
+                    startLat,
+                    startLon,
+                    endLat,
+                    endLon
                 },
             }
         default:

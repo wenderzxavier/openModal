@@ -93,7 +93,7 @@ class Datasets extends Component {
                 <Grid container spacing={8}>
                     {CityData.map((city, key) =>
                         <Grid key={key} item xs={12} lg={6}>
-                            <CityCard city={city} updateStep={this.props.updateStep} updateCity={this.props.updateCity}/>
+                            <CityCard city={city} updateStep={this.props.updateStep}/>
                         </Grid>
                     )}
                 </Grid>

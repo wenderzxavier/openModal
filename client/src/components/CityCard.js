@@ -14,8 +14,6 @@ import Button from '@material-ui/core/Button';
 import Collapse from '@material-ui/core/Collapse';
 import Typography from '@material-ui/core/Typography';
 
-//https://medium.freecodecamp.org/how-to-make-create-react-app-work-with-a-node-backend-api-7c5c48acb1b0
-
 const style = theme => ({
     card: {
         margin: 10,
@@ -49,25 +47,9 @@ class CityCard extends Component {
     state = { expanded: false };
 
     selectDataset = (name, id) => {
-        this.props.updateCity(name);
         this.props.updateStep();
         this.props.setFolderName(id);
-        // this.callAPI(name)
-        //     .catch((err) => console.log(err));
     }
-
-    // callAPI = async name => {
-    //     const response = await fetch('/testDataset', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify({ folderName: 'Meu Nome é Boi!' })
-    //     })
-    //     const body = await response.json();
-
-    //     if (response.status !== 200) throw Error(body.message);
-    // }
 
     handleExpandClick = () => {
         this.setState(state => ({ expanded: !state.expanded }));

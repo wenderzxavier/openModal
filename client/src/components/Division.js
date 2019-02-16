@@ -33,10 +33,7 @@ const getSteps = () => {
 class Division extends Component {
     constructor() {
         super();
-
         this.updateStep = this.updateStep.bind(this);
-        this.updateCity = this.updateCity.bind(this);
-        this.updateAnalyses = this.updateAnalyses.bind(this);
     }
 
     state = {
@@ -47,14 +44,6 @@ class Division extends Component {
 
     updateStep() {
         this.setState({ activeStep: this.state.activeStep + 1 });
-    }
-
-    updateCity(cityName) {
-        this.setState({ selectedCity : cityName});
-    }
-
-    updateAnalyses(algorithm){
-        this.setState({ selectedAnalyses : algorithm });
     }
 
     render() {
@@ -77,13 +66,13 @@ class Division extends Component {
                         <Grid item sm={12} lg={4}>
                             <Typography align='center' color="textSecondary" variant="title">Available Cities: {selectedCity}</Typography>
                             <div className={activeStep === 0 ? '' : 'disableSection'}>
-                                <Datasets updateStep={this.updateStep} updateCity={this.updateCity}/>
+                                <Datasets updateStep={this.updateStep}/>
                             </div>
                         </Grid>
                         <Grid item sm={12} lg={4}>
                             <Typography align='center' color="textSecondary" variant="title">Available Analyses: {selectedAnalyses}</Typography>
                             <div className={activeStep === 1 ? '' : 'disableSection'}>
-                                <Analyses updateStep={this.updateStep} />
+                                <Analyses updateStep={this.updateStep}/>
                             </div>
                         </Grid>
                         <Grid item sm={12} lg={4}>

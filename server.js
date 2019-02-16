@@ -1,17 +1,50 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser')
+const rimraf = require('rimraf');
+const execSync = require('child_process').execSync;
+const fs = require('fs');
 const port = process.env.PORT || 5000;
-const spawn = require('child_process').spawn;
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+app.post('/pts', (req, res) => {
+    // fs.readdirSync('./results').forEach((file) => {
+    //     fs.unlinkSync(`./results/${file}`);
+    // })
+
+    console.log('Removed previous results successfully!');
+
+    const { cluster, seed, iteractions } = req.body.variables
+
+    let pythonProcess = execSync(`python ./algorithms/${req.body.algorithm}.py ${cluster} ${seed} ${iteractions}`)
+
+    let fileList = fs.readdirSync('./results');
+
+    console.log('Executed Algorithm');
+
+    res.send({ status: 'SUCCESS', files: fileList });
+})
+
+
+app.post('/signature', (req, res) => {
+    // fs.readdirSync('./results').forEach((file) => {
+    //     fs.unlinkSync(`./results/${file}`);
+    // })
+
+    console.log('Removed previous results successfully!');
+
+    const { unitArea, timeVariation, startLat, startLon, endLat, endLon } = req.body.variables
+
+    let pythonProcess = execSync(`python ./algorithms/${req.body.algorithm}.py ${unitArea} ${timeVariation} ${startLat} ${startLon} ${endLat} ${endLon}`)
+
+    let fileList = fs.readdirSync('./results');
+
+    console.log('Executed Algorithm');
+
+    res.send({ status: 'SUCCESS', files: fileList });
+})
 
 // console.log that your server is up and running
 app.listen(port, () => console.log(`Listening on port ${port}`));
-
-// app.post('/testDataset', (req, res) => {
-//   console.log(req.body);
-//   let pythonProcess = spawn('python',["./algorithms/test.py", 'arg1', 'arg2', 'arg3']);
-
-//   pythonProcess.stdout.on('data', (data) => {
-//     console.log(data);
-//   });
-
-// })
