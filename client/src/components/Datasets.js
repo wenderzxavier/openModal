@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import Modal from 'react-modal';
 import { connect } from 'react-redux'
 import { changeData } from '../actions/modal';
-import { modals } from '../utils/Constants';
+// import { modals } from '../utils/Constants';
 import '../styles/index.css';
 
 const customStyles = {
@@ -16,7 +16,7 @@ const customStyles = {
         maxWidth: '500px',
         width: '80%',
         height: '60%',
-        maxHeight: '500px',
+        maxHeight: '130px',
         left: '50%',
         right: 'auto',
         bottom: 'auto',
@@ -76,8 +76,10 @@ class Datasets extends Component {
                     onRequestClose={this.closeModal}
                     style={customStyles}
                     contentLabel="Select Datasets"
-                >
-                    <form>
+                >  
+                <h2>Oops!</h2>
+                <h3>This Feature is not available on openModal v1.0</h3>
+                    {/* <form>
                         {modals.map((type, key) => (
                             <div key={key}>
                                 <label htmlFor={type.id} className='input-dataset'>
@@ -88,7 +90,7 @@ class Datasets extends Component {
                             </div>
                         ))}
                         <Button variant="contained" size='small' color="primary" onClick={this.handleUpload}>Upload Data</Button>
-                    </form>
+                    </form> */}
                 </Modal>
                 <Grid container spacing={8}>
                     {CityData.map((city, key) =>

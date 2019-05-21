@@ -18,9 +18,9 @@ app.post('/pts', (req, res) => {
 
     const { cluster, seed, iteractions } = req.body.variables
 
-    let pythonProcess = execSync(`python ./algorithms/${req.body.algorithm}.py ${cluster} ${seed} ${iteractions}`)
+    let pythonProcess = execSync(`python ./algorithms/${req.body.algorithm}.py ${req.body.data} ${cluster} ${seed} ${iteractions}`)
 
-    let fileList = fs.readdirSync('./results');
+    let fileList = fs.readdirSync('./client/public/results');
 
     console.log('Executed Algorithm');
 
@@ -39,7 +39,7 @@ app.post('/signature', (req, res) => {
 
     let pythonProcess = execSync(`python ./algorithms/${req.body.algorithm}.py ${unitArea} ${timeVariation} ${startLat} ${startLon} ${endLat} ${endLon}`)
 
-    let fileList = fs.readdirSync('./results');
+    let fileList = fs.readdirSync('./client/public/results');
 
     console.log('Executed Algorithm');
 

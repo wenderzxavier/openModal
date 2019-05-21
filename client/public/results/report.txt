@@ -1,13 +1,20 @@
-This is line 1
-This is line 2
-This is line 3
-This is line 4
-This is line 5
-This is line 6
-This is line 7
-This is line 8
-This is line 9
-This is line 10
-Number of arguments: 4 arguments['./algorithms/pts.py', 'arg1', 'arg2', 'arg3']
+Calculating metrics for chicago-server ...
+Input Variables
+Number of Clusters (k) : 10
+Seed : 1
+Iterations : 100
 
-LINDAMENTE
+Grau de Nós: 
+{0: 8, 1: 9, 2: 7, 3: 9, 4: 7, 5: 4, 6: 9, 7: 8, 8: 6, 9: 7}
+Informação dos Nós: 
+Name: 
+Type: Graph
+Number of nodes: 10
+Number of edges: 37
+Average degree:   7.4000
+
+Tamanho de Caminho Médio: 1.1777777777777778
+Coeficiente de Centralidade - Betweenneess (ID Vértice, Coef.): 
+[(2, 0.0), (4, 0.0), (5, 0.0), (9, 0.0), (8, 0.013888888888888888), (0, 0.016666666666666666), (7, 0.016666666666666666), (1, 0.058333333333333334), (3, 0.058333333333333334), (6, 0.058333333333333334)]
+Coeficiente de Centralidade - Closeness (ID Vértice, Coef.): 
+[(5, 0.6428571428571429), (8, 0.75), (2, 0.8181818181818182), (4, 0.8181818181818182), (9, 0.8181818181818182), (0, 0.9), (7, 0.9), (1, 1.0), (3, 1.0), (6, 1.0)]

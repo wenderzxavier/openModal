@@ -28,6 +28,11 @@ const resultType = [
         cover: cluster,
     },
     {
+        name: 'Centroid',
+        id: 'centroid.html',
+        cover: location,
+    },
+    {
         name: 'Network',
         id: 'network.html',
         cover: network,

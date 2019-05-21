@@ -31,7 +31,7 @@ const styles = theme => ({
 class PTS extends Component {
     state = {
         cluster: 1,
-        seed: 0,
+        seed: 1,
         iteractions: 100
     }
 
