@@ -70,7 +70,9 @@ class Datasets extends Component {
         const { classes } = this.props;
         return (
             <div className={classes.area}>
-                <Button variant="contained" size='small' color="primary" onClick={this.openModal}>Upload new city data here</Button>
+                {/*
+                    UNCOMMENT THIS WHEN IMPLEMENTING UPLOAD CITY FUNCTIONALITY
+                <Button variant="contained" size='small' color="primary" onClick={this.openModal}>Upload new city data here</Button>*/}
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onRequestClose={this.closeModal}

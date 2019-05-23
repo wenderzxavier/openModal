@@ -39,6 +39,7 @@ const modalReducer = (state = initialState, action) => {
                 ...state,
                 algorithm,
                 variables: {
+                    cluster,
                     unitArea,
                     timeVariation,
                     startLat,

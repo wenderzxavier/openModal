@@ -17,10 +17,11 @@ export const changePTSVariables = (algorithm, {cluster, seed, iteractions}) => {
     }
 }
 
-export const changeSignatureVariables = (algorithm, {unitArea, timeVariation, startLat, startLon, endLat, endLon}) => {
+export const changeSignatureVariables = (algorithm, {cluster, unitArea, timeVariation, startLat, startLon, endLat, endLon}) => {
     return{
         type: CHANGE_SIGNATURE_VARIABLES,
         algorithm,
+        cluster,
         unitArea,
         timeVariation,
         startLat,

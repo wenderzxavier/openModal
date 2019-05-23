@@ -30,12 +30,17 @@ const styles = theme => ({
 
 class Signature extends Component {
     state = {
-        unitArea: 1,
+        cluster: 4,
+        unitArea: 300,
         timeVariation: 60,
-        startLat: 0,
-        startLon: 0,
-        endLat: 0,
-        endLon: 0
+        startLat: -19.940477,
+        startLon: -19.911063,
+        endLat: -43.960304,
+        endLon: -43.917860
+    }
+
+    handleChangeCluster(evt) {
+        this.setState({ cluster: evt.target.value })
     }
 
     handleChangeUnitArea(evt) {
@@ -72,8 +77,21 @@ class Signature extends Component {
         return (
             <div>
                 <TextField
+                    id="cluster"
+                    label="# Clusters"
+                    value={this.state.cluster}
+                    onChange={(e) => this.handleChangeCluster(e)}
+                    type="number"
+                    className={classes.textField}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    margin="normal"
+                />
+
+                <TextField
                     id="unitArea"
-                    label="Unit Area (km²)"
+                    label="Unit Area (m)"
                     value={this.state.unitArea}
                     onChange={(e) => this.handleChangeUnitArea(e)}
                     type="number"

@@ -35,9 +35,9 @@ app.post('/signature', (req, res) => {
 
     console.log('Removed previous results successfully!');
 
-    const { unitArea, timeVariation, startLat, startLon, endLat, endLon } = req.body.variables
+    const { cluster, unitArea, timeVariation, startLat, startLon, endLat, endLon } = req.body.variables
 
-    let pythonProcess = execSync(`python ./algorithms/${req.body.algorithm}.py ${unitArea} ${timeVariation} ${startLat} ${startLon} ${endLat} ${endLon}`)
+    let pythonProcess = execSync(`python ./algorithms/${req.body.algorithm}.py  ${req.body.data} ${cluster} ${unitArea} ${timeVariation} ${startLat} ${startLon} ${endLat} ${endLon}`)
 
     let fileList = fs.readdirSync('./client/public/results');
 
