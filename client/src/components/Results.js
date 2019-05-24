@@ -9,7 +9,7 @@ const style = {
     area: {
         backgroundColor: 'white',
         margin: 15,
-        textAlign: 'center'
+        textAlign: 'center',
     },
     title: {
         fontFamly: 'Raleway'
@@ -66,7 +66,7 @@ class Results extends Component {
         const { results } = this.state
         return (
             <div className={classes.area}>
-                {results.length === 0 ? <p>Executing Algorithms</p> : ''}
+                {results.length === 0 ? <p>Running Algorithms. This may take a while...</p> : ''}
                 <Grid container spacing={8}>
                     {results.map((result, key) => (
                         <Grid key={key} item xs={12} lg={6}>

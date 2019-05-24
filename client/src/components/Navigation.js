@@ -25,7 +25,7 @@ const Navigation = (props) =>
             OpenModal
             </Link>
         </Typography>
-        <Button color="inherit">
+        {/* <Button color="inherit">
           <Link to='/geodata' className='link-menu'>
             openGeoData
             </Link>
@@ -34,7 +34,7 @@ const Navigation = (props) =>
           <Link to='/project' className='link-menu'>
             The Project
           </Link>
-        </Button>
+        </Button> */}
         <Button color="inherit">
           <Link to='/docs' className='link-menu'>
             Docs

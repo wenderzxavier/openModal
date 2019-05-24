@@ -1,4 +1,4 @@
-import {  CHANGE_DATA, CHANGE_PTS_VARIABLES, CHANGE_SIGNATURE_VARIABLES } from './Constants';
+import {  CHANGE_DATA, CHANGE_PTS_VARIABLES, CHANGE_SIGNATURE_VARIABLES, CHANGE_UBER_VARIABLES } from './Constants';
 
 export const changeData = (data) => {
     return{
@@ -28,5 +28,12 @@ export const changeSignatureVariables = (algorithm, {cluster, unitArea, timeVari
         startLon,
         endLat,
         endLon
+    }
+}
+
+export const changeUberVariables = (algorithm) => {
+    return{
+        type: CHANGE_UBER_VARIABLES,
+        algorithm
     }
 }

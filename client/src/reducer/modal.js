@@ -1,4 +1,4 @@
-import { CHANGE_DATA, CHANGE_PTS_VARIABLES, CHANGE_SIGNATURE_VARIABLES } from '../actions/Constants';
+import { CHANGE_DATA, CHANGE_PTS_VARIABLES, CHANGE_SIGNATURE_VARIABLES, CHANGE_UBER_VARIABLES } from '../actions/Constants';
 
 const initialState = {
     data: '',
@@ -47,6 +47,11 @@ const modalReducer = (state = initialState, action) => {
                     endLat,
                     endLon
                 },
+            }
+        case CHANGE_UBER_VARIABLES:
+            return{
+                ...state,
+                algorithm
             }
         default:
             return state;

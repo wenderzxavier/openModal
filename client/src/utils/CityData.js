@@ -1,8 +1,9 @@
 import * as data from './Constants'
 import chicago from '../assets/city/chicago.png'
-import taichung from '../assets/city/taichung.png'
-import dubai from '../assets/city/dubai.png'
+// import taichung from '../assets/city/taichung.png'
+// import dubai from '../assets/city/dubai.png'
 import bh from '../assets/city/beloHorizonte.png'
+import toronto from '../assets/city/toronto.png'
 
 const CityData = [
     {
@@ -42,7 +43,16 @@ const CityData = [
         data: [ data.MOBILE ],
         description: 'DescriptionBelo Horizonte is the capital city of southeastern Brazil’s Minas Gerais state. Surrounded by mountains.',
         detailedDescription: []
+    },
+    {
+        name: 'Toronto',
+        id: 'toronto-server',
+        cover: toronto,
+        data: [ data.UBER_MOVEMENT ],
+        description: 'DescriptionToronto, the capital of the province of Ontario, is a major Canadian city along Lake Ontario’s northwestern shore. It\'s a dynamic metropolis with a core of soaring skyscrapers, all dwarfed by the iconic, free-standing CN Tower.',
+        detailedDescription: []
     }
+
 ]
 
 export default CityData

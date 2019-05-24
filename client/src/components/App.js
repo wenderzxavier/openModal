@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Modal from '../views/Modal';
-import GeoData from '../views/GeoData';
-import Project from '../views/Project';
+//import GeoData from '../views/GeoData';
+//import Project from '../views/Project';
 import Docs from '../views/Docs';
 import Contribute from '../views/Contribute';
 
@@ -14,14 +14,14 @@ class App extends Component {
                     <Modal />
                 )} />
 
-                <Route exact path='/geodata' render={() => (
+                {/* <Route exact path='/geodata' render={() => (
                     <GeoData />
-                )} />
+                )} /> */}
 
-                <Route exact path='/project' render={() => (
+                {/* <Route exact path='/project' render={() => (
                     <Project />
                 )} />
-
+ */}
                 <Route exact path='/docs' render={() => (
                     <Docs />
                 )} />

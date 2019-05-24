@@ -2,8 +2,11 @@ import React from 'react'
 import * as data from './Constants'
 import ptsEvaluation from '../assets/funcs/ptsEvaluation.png'
 import networkLoad from '../assets/funcs/networkLoad.png'
+import uberMovement from '../assets/funcs/uber_gif.gif'
 import PTS from './algorithm-variables/pts'
 import Signature from './algorithm-variables/signature';
+import Uber from './algorithm-variables/uber';
+
 
 const Analyses = [
     {
@@ -28,6 +31,18 @@ const Analyses = [
         detailedDescription: [],
         variables: <Signature />
     },
+    {
+        name: 'Uber Movement Analyses',
+        id: 'uber',
+        cover: uberMovement,
+        data: [
+            data.UBER_MOVEMENT
+        ],
+        description: 'Calculate complet network metrics using Uber Movement data',
+        detailedDescription: [],
+        variables: <Uber />
+    },
+
 ]
 
 export default Analyses
