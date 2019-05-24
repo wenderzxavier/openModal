@@ -10,9 +10,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.post('/pts', (req, res) => {
-    // fs.readdirSync('./results').forEach((file) => {
-    //     fs.unlinkSync(`./results/${file}`);
-    // })
+    fs.readdirSync('./results').forEach((file) => {
+        fs.unlinkSync(`./results/${file}`);
+    })
 
     console.log('Removed previous results successfully!');
 
@@ -29,15 +29,32 @@ app.post('/pts', (req, res) => {
 
 
 app.post('/signature', (req, res) => {
-    // fs.readdirSync('./results').forEach((file) => {
-    //     fs.unlinkSync(`./results/${file}`);
-    // })
+    fs.readdirSync('./results').forEach((file) => {
+        fs.unlinkSync(`./results/${file}`);
+    })
 
     console.log('Removed previous results successfully!');
 
     const { cluster, unitArea, timeVariation, startLat, startLon, endLat, endLon } = req.body.variables
 
     let pythonProcess = execSync(`python ./algorithms/${req.body.algorithm}.py  ${req.body.data} ${cluster} ${unitArea} ${timeVariation} ${startLat} ${startLon} ${endLat} ${endLon}`)
+
+    let fileList = fs.readdirSync('./client/public/results');
+
+    console.log('Executed Algorithm');
+
+    res.send({ status: 'SUCCESS', files: fileList });
+})
+
+
+app.post('/uber', (req, res) => {
+    fs.readdirSync('./results').forEach((file) => {
+        fs.unlinkSync(`./results/${file}`);
+    })
+
+    console.log('Removed previous results successfully!');
+
+    let pythonProcess = execSync(`python ./algorithms/${req.body.algorithm}.py  ${req.body.data}`)
 
     let fileList = fs.readdirSync('./client/public/results');
 
